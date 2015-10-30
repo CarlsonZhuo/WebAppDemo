@@ -79,12 +79,12 @@ http://stackoverflow.com/questions/8924993/how-can-i-change-a-django-form-field-
 ```python
 class Clientadmin(admin.ModelAdmin):
   list_filter = (ModeFilter,
-                 'rewardsapp_active',
-                 'referralsapp_active',
-                 'fansapp_active',
-                 'is_bigcommerce',
+                 'country',
+                 'trial',
+                 'trial_period',
+                 'is_active',
                  'subscription',
-                 'test',
+                 'testaccount',
                  )
   readonly_fields = ('country',
                      'trial',
@@ -92,15 +92,13 @@ class Clientadmin(admin.ModelAdmin):
                      )
   search_fields = ('id',
                    'domain',
-                   'custom_store_name',
                    )
-  actions = ('check_shopper',
-             'check_coupon',
-             'check_order',
-             'restore_webdav',
+  actions = ('check_status',
+             'set_status',
+             'restore_connections',
              )
 
-  def check_coupon(modeladmin, request, selected):
+  def check_status(modeladmin, request, selected):
     return TemplateResponse(request, template_name, context)
 ```
 
@@ -146,7 +144,7 @@ http://stackoverflow.com/questions/10040143/how-to-do-a-less-than-or-equal-to-fi
 In some cases, we want to create a global variable for Django. For example, the platform nouns:
 
 ```python
-if shopify:
+if spf:
 	coupon, collection
 if bc:
 	reward, catagary
