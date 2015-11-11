@@ -45,7 +45,7 @@ webappdemo
 
 Now pull the data in the remote repo to local.
 ```bash
-carlson@springsight:~/testbed$ git pull webappdemo master
+carlson@machine:~/testbed$ git pull webappdemo master
 # Now we still don't have any branch locally.
 # In the remote repo, there is also only one branch, called master
 # Therefore, I pull the master branch from webappdemo.
@@ -91,11 +91,33 @@ git push <remote-branch-name> <local-branch-name>
 >Single Branching in this chapter means only one branch remotely, but multiple
 branch locally. This makes cooperation among 2-5 people possible.
 
->The git commands involved in this chapter will be:
+The git commands involved in this chapter will be:
 ```bash
-git branch
-git rebase
+git branch <branch name>
+# create a new branch locally based on your current branch
+git checkout <branch name>
+# switch to the <branch name>
+git rebase <branch name>
+# re-base the current branch on the <branch name> branch
 ```
+
+example
+
+
+
+### Multi-branching
+
+After reading the two single branching chapter above, I believe that you've
+already got your thing running. By now, it is still hard to convince you that
+git is indeed better that SVN or other version control tools.
+
+Indeed, git is much more than single branching, since it
+provides fork, merge, and a lot of other powerful tools.
+
+Since this cheat sheet is just the most basic cheat sheet, and aim at having
+thing running without too much background knowledge. I believe that, there are
+already countless good tutorial introducing the Multi-branching functionality
+of git. :-D
 
 ### Roll Back
 
