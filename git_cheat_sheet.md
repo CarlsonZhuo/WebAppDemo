@@ -158,7 +158,11 @@ git checkout Bob_hot_fix
 git rebase master
 git push webappdemo Bob_hot_fix:master
 ```
-
+6. For both Alice and Bob, remember the do git pull to keep updated. Once their local branch is useless, run
+```bash
+git branch -D Alice_hot_fix
+```
+to remove the branch.
 -----
 
 ### Multi-branching
