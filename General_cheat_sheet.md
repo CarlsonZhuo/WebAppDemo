@@ -1,29 +1,3 @@
-# Git Usage
-
-> Roll Back
-
-Assuming you did not commit the file, or add it to the index, then:
-```bash
-git checkout filename
-```
-Assuming you added it to the index, but did not commit it, then:
-```bash
-git reset HEAD filename
-git checkout filename
-```
-Assuming you did commit it, then:
-```
-git checkout origin/master filename
-```
-Assuming you want to blow away all commits from your branch (VERY DESTRUCTIVE):
-```
-git reset --hard origin/master
-```
-
->git branch, fork, fetch, merge, rebase and clone, what are the differences?
-
-http://stackoverflow.com/questions/3329943/git-branch-fork-fetch-merge-rebase-and-clone-what-are-the-differences
-
 # What is JSONP
 
 http://stackoverflow.com/questions/2067472/what-is-jsonp-all-about
