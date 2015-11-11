@@ -145,7 +145,9 @@ git checkout Bob_hot_fix
 ```
 3. Alice finished her code, and decided to push Alice_hot_fix to the remote 'master' branch in the remote repo
 ```bash
-git push webappdemo/master Alice_hot_fix
+# you are now at the Alice_hot_fix branch
+git push webappdemo Alice_hot_fix:master
+# git push <remotename> <local branch name>:<remote branch name>
 ```
 4. Bob finished his code. Before he push, he found that the remote master branch already has alice's code
 5. Bob checkout his local master branch, git pull, checkout Bob_hot_fix branch, git rebase master, then git push.
@@ -154,7 +156,7 @@ git checkout master
 git pull
 git checkout Bob_hot_fix
 git rebase master
-git push webappdemo/master Bob_hot_fix
+git push webappdemo Bob_hot_fix:master
 ```
 
 -----
