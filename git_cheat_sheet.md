@@ -86,10 +86,12 @@ git commit -m 'some comment here'
 git push <remote-branch-name> <local-branch-name>
 # Before doing this, the repo on the server like Github is not affected.
 ```
+------
 
 ### Single Branching - Basic Cooperation
 >Single Branching in this chapter means only one branch remotely, but multiple
 branch locally. This makes cooperation among 2-5 people possible.
+
 
 The git commands involved in this chapter will be:
 ```bash
@@ -102,8 +104,60 @@ git rebase <branch name>
 ```
 
 example
+```bash
+carlson@machine:~/testbed$ git branch
+* master
+carlson@machine:~/testbed$ git branch new_branch
+carlson@machine:~/testbed$ git branch
+* master
+  new_branch
+carlson@machine:~/testbed$ git checkout new_branch
+Switched to branch 'new_branch'
+carlson@machine:~/testbed$ git branch
+  master
+* new_branch
+# the * indicates the current branch
+```
 
 
+The basic work flow is like the following:
+
+>Background info:
+
+1. Now Alice and Bob work together on a remote repo, which we name it webappdemo
+2. Alice and Bob have their a local branch 'master' and the webappdemo has a branch 'master'
+3. Both Alice and Bob have their local branch consistent with the remote branch in the remote repo right now.
+4. Now, Alice and Bob would like to work parallelly on different stuff.
+
+>How it works
+
+1. Alice create a new branch locally based on the her local master branch, called Alice_hot_fix, and then checkout to it.
+```bash
+# Now Alice is on her master branch
+git branch Alice_hot_fix
+git checkout Alice_hot_fix
+```
+2. Bob create a new branch locally based on his local master branch, called Bob_hot_fix, and then checkout to it.
+```bash
+# Now Bob is on her master branch
+git branch Bob_hot_fix
+git checkout Bob_hot_fix
+```
+3. Alice finished her code, and decided to push Alice_hot_fix to the remote 'master' branch in the remote repo
+```bash
+git push webappdemo/master Alice_hot_fix
+```
+4. Bob finished his code. Before he push, he found that the remote master branch already has alice's code
+5. Bob checkout his local master branch, git pull, checkout Bob_hot_fix branch, git rebase master, then git push.
+```bash
+git checkout master
+git pull
+git checkout Bob_hot_fix
+git rebase master
+git push webappdemo/master Bob_hot_fix
+```
+
+-----
 
 ### Multi-branching
 
@@ -118,6 +172,8 @@ Since this cheat sheet is just the most basic cheat sheet, and aim at having
 thing running without too much background knowledge. I believe that, there are
 already countless good tutorial introducing the Multi-branching functionality
 of git. :-D
+
+-----
 
 ### Roll Back
 
@@ -139,11 +195,15 @@ Assuming you want to blow away all commits from your branch (VERY DESTRUCTIVE):
 git reset --hard origin/master
 ```
 
+-----
+
 ### Diff Branch, Fork, Fetch, Merge, Rebase and Clone
 
 reference:
 
 [1] http://stackoverflow.com/questions/3329943/git-branch-fork-fetch-merge-rebase-and-clone-what-are-the-differences
+
+-----
 
 ### Delete a remote branch
 
