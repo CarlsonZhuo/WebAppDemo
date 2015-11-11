@@ -7,6 +7,13 @@
 
 ### Single Branching - Working With Only Yourself
 
+>Single Branching in this chapter means, only one branch locally, and one branch
+remotely.
+
+>That means, no commands like merge, rebase, fork, or something else that
+related to Branching will be introduced in this chapter
+
+
 >Suppose we have only one branch on the remote repo, and nothing locally.
 With the content in this chapter, you can understand how to use git in the most
 basic manner. You can play around it, and have your code uploaded to any git
@@ -53,7 +60,20 @@ From https://github.com/CarlsonZhuo/WebAppDemo
 
 ```
 
-Suppose now you have some changes on your local files, and you want to push
+Suppose now you have some changes on your local files. To see what files you've
+change, use the following git command
+
+```bash
+git status
+```
+
+To see exactly what modication you've made, use the following git command
+
+```bash
+git diff
+```
+
+And you want to push
 the changes to the remote server like Github, so that your talented work can be
 shared with others, we need to do the following.
 
@@ -65,6 +85,16 @@ git commit -m 'some comment here'
 # Now the change is added to local repo
 git push <remote-branch-name> <local-branch-name>
 # Before doing this, the repo on the server like Github is not affected.
+```
+
+### Single Branching - Basic Cooperation
+>Single Branching in this chapter means only one branch remotely, but multiple
+branch locally. This makes cooperation among 2-5 people possible.
+
+>The git commands involved in this chapter will be:
+```bash
+git branch
+git rebase
 ```
 
 ### Roll Back
