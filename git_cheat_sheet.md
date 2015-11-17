@@ -179,6 +179,26 @@ thing running without too much background knowledge. I believe that, there are
 already countless good tutorial introducing the Multi-branching functionality
 of git. :-D
 
+In the following, a basic workflow will be given.
+
+```bash
+git checkout master
+git checkout -b <sub-tast name>
+# use the sub-task name as a new branch
+git push -u webappdemo <sub-tast name>
+
+git checkout -b <sub-task step1>
+# blah blah blah some code change here
+git add -A
+git commit -m 'blah blah'
+# maybe code review here
+git push webappdemo <sub-task step1>: <sub-tast name>
+```
+The principle of working on the new branch is as what you do in single branch.
+
+Yep, still no fork and merge :-D
+
+
 -----
 
 ### Roll Back
